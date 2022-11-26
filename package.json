@@ -1,0 +1,24 @@
+{
+  "name": "backendorder",
+  "version": "0.9.0",
+  "description": "backend para el proyecto final ciclo 4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xanvalep/backend_projectorder.git"
+  },
+  "author": "@xanvalep",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xanvalep/backend_projectorder/issues"
+  },
+  "homepage": "https://github.com/xanvalep/backend_projectorder#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.3"
+  }
+}
