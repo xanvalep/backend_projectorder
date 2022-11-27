@@ -1,7 +1,7 @@
 console.log("cargando configuración")
 // import dependencies 
 const express = require('express');
-const router = require('./routes/routerUser');
+const router = require('./routes/routerDummyUser');
 // load config app Web 
 const appConfig = require("./config");
 var bodyParser = require('body-parser');
@@ -15,12 +15,15 @@ console.log("configurando routers");
 // ruta virtual 
 // el algoritmo  que yo programo para responder la petición 
 
+
+const userDummyRouter= require("./routes/routerDummyUser");
 const userRouter= require("./routes/routerUser");
 
 // configurar los router de la app 
 
 app.use(bodyParser.json());
 
+app.use("/api/usuariosDummy", userDummyRouter); 
 app.use("/api/usuarios", userRouter); 
 app.get("/", (req, res) => {
   res.send('Home!')

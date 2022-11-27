@@ -1,27 +1,16 @@
 const express = require("express");
 const router= express.Router();
-const db = require('../baseDatos');
+//cargar el  schema 
+let userSchema = require("../db/schemas/userSchema");
 
-
-
-//leer usuario
-
-router.get("/get/:idUsuario", (req,res) => {
-   let idUsuario = req.params.idUsuario;
-   let usuario = db.getUser(idUsuario);
-   res.json(usuario);
-   res.status(200); 
- 
+router.get("/get/:idUser",async function(req, res) {
+    let idUser = req.params.idUser;
+    let result = await userSchema.findUserById(idUser)
+    res.json(result);
+});
+router.get("/all",async function(req, res) {
+    let result = await userSchema.getAllUser();
+    res.json(result);
 });
 
-//crear usuario
-
-router.post("/create", (req,res) => {
-   let newUser = req.body;
-  let id = db.createUser(newUser);
-  //  res.send(id); 
- //  req;
-  res.send("create");
-});
-
-module.exports = router ;
+module.exports = router;
